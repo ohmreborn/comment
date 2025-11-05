@@ -1,0 +1,9 @@
+{
+	"vim": "\"",
+	"c": "//",
+	"cpp": "//",
+	"rust": "//",
+	"javascript": "//",
+	"typescript": "//",
+	"python": "#"
+}
