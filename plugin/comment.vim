@@ -32,8 +32,5 @@ function! ToggleComment()
 	call Comment(sym)
 endfunction
 
-xnoremap <C-_> :<C-u>call ToggleComment()<ENTER>gv
-nnoremap <C-_> v:<C-u>call ToggleComment()<ENTER>
-
 command! CommentConfig execute "edit " g:comment_config_path
 

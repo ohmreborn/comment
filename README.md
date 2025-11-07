@@ -1,3 +1,7 @@
+this plugin is a key map command in vim
+[demo-comment](doc/demo.gif)
+
+## install
 install for vim plug
 ```vim
 Plug 'ohmreborn/comment'
@@ -19,3 +23,9 @@ to know which filetype you can use
 :echo &filetype
 ```
 here is an example from this [sample-config.json](./sample-config.json)
+
+## sample keymap
+```vim
+xnoremap <C-/> :<C-u>call ToggleComment()<ENTER>gv
+nnoremap <C-/> v:<C-u>call ToggleComment()<ENTER>
+```
