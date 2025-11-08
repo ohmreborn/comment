@@ -28,7 +28,7 @@ endfunction
 let comment_map = LoadCommentConfig()
 
 function! ToggleComment()
-	let sym = get(g:comment_map, &filetype, '#')
+	let sym = g:comment_map[&filetype]
 	call Comment(sym)
 endfunction
 
