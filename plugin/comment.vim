@@ -2,14 +2,20 @@ let g:comment_config_path = '~/.vim/config/comment/config.json'
 
 function! Comment(sym)
 	let actual_sym = escape(a:sym, '/\.*$^~[]')
-	let line_content = getline(".")
-	if line_content =~ '^' . actual_sym
-		if line_content =~ '^' . actual_sym . ' '
-			execute "'<,'>s/^" . actual_sym . " //"
-		else
-			execute "'<,'>s/^" . actual_sym . "//"
- 		endif
+	" check is all comment?
+	let result = execute("'<,'>s/^" . actual_sym . "//gne")
+	" match digit
+	let num_comment = matchstr(result, '\d\+') 
+	let num_comment = num_comment ? num_comment : 0
+	let start_line = line("'<")
+	let end_line = line("'>")
+	let num_select = end_line - start_line + 1
+
+	if num_comment == num_select
+		" uncomment
+		execute "'<,'>s/^" . actual_sym . " //"
 	else
+		" comment
   		execute "'<,'>s/^/". actual_sym . " /"
 	endif
 endfunction
