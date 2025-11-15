@@ -1,9 +1,10 @@
 {
-	"vim": "\"",
-	"c": "//",
-	"cpp": "//",
-	"rust": "//",
-	"javascript": "//",
-	"typescript": "//",
-	"python": "#"
+	"c": "\\/\\/",
+	"cpp": "\\/\\/",
+	"go": "\\/\\/",
+	"javascript": "\\/\\/",
+	"python": "#",
+	"rust": "\\/\\/",
+	"typescript": "\\/\\/",
+	"vim": "\""
 }

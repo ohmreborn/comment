@@ -1,9 +1,8 @@
 let g:comment_config_path = '~/.vim/config/comment/config.json'
 
 function! Comment(sym)
-	let actual_sym = escape(a:sym, '/\.*$^~[]')
 	" check is all comment?
-	let result = execute("'<,'>s/^" . actual_sym . "//gne")
+ 	let result = execute("'<,'>s/^\\s*" . a:sym . "//ne")
 	" match digit
 	let num_comment = matchstr(result, '\d\+') 
 	let num_comment = num_comment ? num_comment : 0
@@ -13,10 +12,10 @@ function! Comment(sym)
 
 	if num_comment == num_select
 		" uncomment
-		execute "'<,'>s/^" . actual_sym . " //"
+		execute "'<,'>s/^\\s*" . a:sym . "\\s*//e"
 	else
 		" comment
-  		execute "'<,'>s/^/". actual_sym . " /"
+  		execute "'<,'>s/^/". a:sym . " /"
 	endif
 endfunction
 
